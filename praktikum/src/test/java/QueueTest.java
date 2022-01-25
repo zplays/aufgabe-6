@@ -1,45 +1,27 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
+import de.hfu.Queue;
 
 public class QueueTest {
+    @Test
+            public void checkQueue(){
+        Queue test = new Queue(3);
+        //haloo
+        test.enqueue(10);
+        assertEquals(10, test.dequeue());
 
-	@Test
-	public void testqueue() {
-		try{
-			Queue.Queue(0);
-			fail("exeption nicht geworfen in queue");
-		}catch (ArithmeticException e){}
-	}
+        test.enqueue(11);
+        test.enqueue(12);
+        test.enqueue(13);
+        test.enqueue(14);
+        assertEquals(11, test.dequeue());
+        assertEquals(12, test.dequeue());
+        assertEquals(14, test.dequeue());
 
-	@Test
-	public void testenqueue(){
-		Queue.Queue(3);
-		Queue.enqueue(1);
-		Queue.enqueue(2);
-		Queue.enqueue(3);
-		Queue.enqueue(4);
-		Assert.assertEquals(4, Queue.queue[3]);
-	}
-
-	@Test
-	public void testdequeue(){
-		Queue.Queue(3);
-		Queue.enqueue(1);
-		Queue.enqueue(2);
-		Queue.enqueue(3);
-		Assert.assertEquals(1, Queue.dequeue);
-	}
-
-	@Test
-	public void testdeque_empty(){
-		Queue.Queue(1);
-		Queue.enqueue(1);
-		Queue.dequeue;
-		try{
-		Queue.deque;
-		fail("exeption nicht geworfen in dequeue bei leerer queue");
-		}catch (ArithmeticException e)
-	}
-
+        try{
+            test.dequeue();
+            assertTrue(false);
+        }
+        catch (IllegalStateException e){}
+    }
 }
